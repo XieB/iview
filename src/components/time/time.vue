@@ -85,12 +85,17 @@
                 }
             }
         },
+        watch: {
+            time() {
+                this.setTime();
+            },
+        },
         mounted () {
             this.setTime();
             if (isServer) return;
-            this.timer = setInterval(() => {
-                this.setTime();
-            }, 1000 * this.interval);
+            // this.timer = setInterval(() => {
+            //     this.setTime();
+            // }, 1000 * this.interval);
         },
         beforeDestroy () {
             if (this.timer) clearInterval(this.timer);
